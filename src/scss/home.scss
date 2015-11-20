@@ -1,0 +1,188 @@
+@import "default.scss";
+
+#maisNovos-esquerda {
+	position: relative;
+	width: 0;
+	height: 0;
+	z-index: 1;
+
+	& > div {
+		padding-top: 70px;
+
+		& > a {
+			@extend %esquerda;
+			display: block;
+		}
+	}
+}
+
+#maisNovos-direita {
+	position: relative;
+	width: 0;
+	height: 0;
+	z-index: 1;
+    margin-left: calc(100% - 38px);
+
+    @media #{$onlyPhone} {
+		margin-left: calc(100% - 28px);
+	}
+
+	& > div {
+		padding-top: 70px;
+
+		& > a {
+			@extend %direita;
+			display: block;
+		}
+	}
+}
+
+#maisNovos {
+	background: $cinzaClaro;
+	padding: $smallMargin;
+	width: 1000%;
+
+	.liMaisNovo {
+		@include liPostThumbnailBig();
+		float: left;
+		margin-right: $regularMargin;
+
+		@media #{$onlyPhone} {
+			width: 300px;
+		}
+
+		.info-holder .info h1 {
+			@media #{$onlyPhone} {
+				font-size: $bigText;
+			}
+		}
+
+		img {
+			@media #{$onlyPhone} {
+				width: 300px;
+				height: 133px;
+			}
+		}
+
+		.texto {
+			@media #{$onlyPhone} {
+				font-size: $smallText;
+			}
+		}
+	}
+}
+
+#categorias {
+	@extend .wrapper;
+
+	&:after {
+	  	content: '';
+	  	display: block;
+	  	clear: both;
+	}
+
+	.section {
+		float: left;
+		width: 360px;
+		height: 300px;
+		padding: 10px 24px;
+
+		@media #{$onlyPhone} {
+			width: 100%;
+			padding: 10px 10px;
+			border: none !important;
+			border-bottom: 1px solid $cinzaClaro !important;
+		}
+
+		@media #{$onlyTablet} {
+			border: none !important;
+			border-bottom: 1px solid $cinzaClaro !important;
+		}
+
+		&.bdireita {
+			border-right: 1px solid $cinzaClaro;
+		}
+
+		&.bbaixo {
+			border-bottom: 1px solid $cinzaClaro;
+		}
+
+		&.gray {
+			background: $cinzaClaro;
+		}
+
+		h1 {
+			font-size: $hugeText;
+			color: $laranja;
+		}
+
+		.liPostThumbnail {
+			@media #{$desktopAndTablet} {
+				@include liPostThumbnailMedium();
+				float: left;
+			}
+
+			@media #{$onlyPhone} {
+				@include liPostThumbnailSmall();
+				display: block;
+				width: 100%;
+			}
+		}
+
+		.vermais {
+			float: right;
+			font-size: 12px;
+		}
+	}
+
+	@mixin horizontal() { 
+		width: 720px; 
+
+		.liPostThumbnail {
+			float: left;
+
+			&:nth-of-type(1) {
+				margin-right: 50px;
+			}
+		}
+	}
+
+	@mixin vertical() { 
+		height: 600px; 
+
+		.liPostThumbnail {
+			margin-bottom: $hugeMargin;
+
+			&:nth-of-type(1) {
+				margin-bottom: 50px;
+			}
+		}
+	}
+
+	.horizontal {
+		@media #{$desktopAndTablet} {
+			@include horizontal();
+		}
+
+		@media #{$onlyPhone} {
+			@include vertical();
+			height: 400px;
+		}
+	}
+
+	.vertical {
+		@media #{$onlyDesktop} {
+			@include vertical();
+		}
+
+		@media #{$onlyTablet} {
+			@include horizontal();
+		}
+
+		@media #{$onlyPhone} {
+			@include vertical();
+			height: 400px;
+		}
+	}
+
+}

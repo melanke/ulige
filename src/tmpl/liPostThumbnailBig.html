@@ -1,0 +1,14 @@
+<a class="liPostThumbnail" href="<%= post.url %>">
+	<div class="info-holder">
+		<div class="info">
+			<h1><%= post.title.$t %></h1>
+			<span class="categoria">
+				<%= post.categoriaPrincipal %>
+			</span>
+		</div>
+	</div>
+	<img src="<%= post.preview.img %>"/>
+	<span class="texto">
+		<%= post.preview.text %>
+	</span>
+</a>

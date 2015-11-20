@@ -1,0 +1,45 @@
+@import "default.scss";
+
+#main {
+	.wrapper {
+		padding: 30px 0;
+
+		@media #{$onlyPhone} {
+			padding: 10px;
+		}
+
+		& > h1 {
+			font-size: 36px;
+			color: $laranja;
+		}
+
+		.liPostThumbnail {
+			.categoria {
+				display: none;
+			}
+
+			@media #{$onlyDesktop} {
+				@include liPostThumbnailBig();
+				float: left;
+				margin-bottom: 30px;
+				margin-left: 55px;
+				margin-right: 55px;
+			}
+
+			@media #{$onlyTablet} {
+				@include liPostThumbnailMedium();
+				float: left;
+				margin-bottom: 30px;
+				margin-left: 35px;
+				margin-right: 35px;
+			}
+
+			@media #{$onlyPhone} {
+				@include liPostThumbnailSmall();
+				display: block;
+				width: 100%;
+				margin-bottom: 30px;
+			}
+		}
+	}
+}

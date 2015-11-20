@@ -1,0 +1,11 @@
+<% if (post) { %>
+	<a class="liPostThumbnail" href="<%= post.url %>">
+		<div class="title-holder">
+			<h1><%= post.title.$t %></h1>
+		</div>
+		<img src="<%= post.preview.img %>"/>
+		<span class="texto">
+			<%= post.preview.text %>
+		</span>
+	</a>
+<% } %>

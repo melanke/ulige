@@ -1,0 +1,26 @@
+<div id="maisNovos-esquerda"><div><a></a></div></div>
+<div id="maisNovos-direita"><div><a></a></div></div>
+
+<div id="maisNovos">
+<% for (var i in posts) { var post = posts[i]; %>
+	<% if (post && post.preview) { %>
+
+	<a class="liMaisNovo" href="<%= post.url %>">
+		<div class="info-holder">
+			<div class="info">
+				<h1><%= post.title.$t %></h1>
+				<span class="categoria">
+					<%= post.categoriaPrincipal %>
+				</span>
+			</div>
+		</div>
+		<img src="<%= post.preview.img %>"/>
+		<span class="texto">
+			<%= post.preview.text %>
+		</span>
+	</a>
+
+	<% } %>
+<% } %>
+	<div class="clear"></div>
+</div>

@@ -1,0 +1,41 @@
+<div id="cover">
+	<div class="info-holder">
+		<div class="wrapper">
+			<div class="info">
+				<span class="publicacao"><%= post.moment.format("dddd, DD [de] MMMM [de] YYYY") %></span>
+				<h1><%= post.title.$t %></h1>
+				<span class="categoria">
+					<% 
+					var ehOprimeiro = true;
+					for (var i in post.labels) { 
+						var label = post.labels[i];
+						if (!ehOprimeiro) {
+					%>,<% } %>
+						<a href="/search/label/<%= label %>"><%= label %></a>
+					<% 
+						ehOprimeiro = false;
+					} 
+					%>
+				</span>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="areaCinza">
+	<div class="wrapper">
+		<div id="relacionados">
+			<h1>Relacionados</h1>
+		</div>
+		<div id="content">
+			<%= post.content.$t %>
+			<div id="autor"></div>
+			<div id="share"></div>
+			<div class="fb-comments" data-href="<%= post.url %>" data-width="100%" data-numposts="5"></div>
+		</div>
+	</div>
+</div>
+<div id="outrosPosts" hidden="true">
+	<div class="wrapper">
+		<h1>Você já leu estes?</h1>
+	</div>
+</div>
