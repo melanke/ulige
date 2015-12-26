@@ -5,53 +5,11 @@
         <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'/>
         <meta content='width=device-width, initial-scale=1, maximum-scale=1' name='viewport'/>
 
-        <title>Testando notification</title>
+        <title>Registrar Notificações</title>
 
     <body>
 
-
-<script>
-    var isNotificationEnabled = false;
-
-    var configurarNotification = function () {  
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register("localnotification.js")
-                    .then(initnotificationState);
-        }
-    };
-
-    var initnotificationState = function() {
-
-        if (!('showNotification' in ServiceWorkerRegistration.prototype)) {
-            alert("Seu navegador não suporta notificações");
-            return;
-        }
-
-        // Let's check if the browser supports notifications
-        if (!("Notification" in window)) {
-            alert("Seu navegador não suporta notificações");
-
-        } else if (Notification.permission !== "granted" && Notification.permission !== 'denied') {
-            Notification.requestPermission(function (permission) {
-                navigator.serviceWorker.ready.then(function (serviceWorkerRegistration) {
-
-                });
-            });
-        }
-
-    };
-
-    var subscribeNotification = function() {
-
-        navigator.serviceWorker.ready.then(function (serviceWorkerRegistration) {
-
-        });
-    };
-
-configurarNotification();
-subscribeNotification();
-</script>
-
+        <script type="text/javascript" src="localnotification-register.js"></script>
     </body>
 
 </html>
