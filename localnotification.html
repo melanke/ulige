@@ -27,19 +27,17 @@
             return;
         }
 
-        if (Notification.permission === 'denied') {
-            alert("Você negou a permissão de enviar notificações");
-            return;
-        }
-
-        if (!('PushManager' in window)) {
+        // Let's check if the browser supports notifications
+        if (!("Notification" in window)) {
             alert("Seu navegador não suporta notificações");
-            return;
+
+        } else if (Notification.permission !== "granted" && Notification.permission !== 'denied') {
+            Notification.requestPermission(function (permission) {
+                navigator.serviceWorker.ready.then(function (serviceWorkerRegistration) {
+
+                });
+            });
         }
-
-        navigator.serviceWorker.ready.then(function (serviceWorkerRegistration) {
-
-        });
 
     };
 

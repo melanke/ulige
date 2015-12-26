@@ -3,4 +3,4 @@ setInterval(function(){
       body: "Na categoria \"Entretenimento\"",  
       icon: "https://cdn.rawgit.com/melanke/ulige/master/imgs/logo.png"
     });
-}, 5 * 60 * 1000);
+}, 5 * /*60 */ 1000);
