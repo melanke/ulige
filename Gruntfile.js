@@ -6,7 +6,8 @@ module.exports = function(grunt) {
         browserify: {
           dist: {
             files: {
-                'lib.js': ['src/js/index.js']
+                'lib.js': ['src/js/index.js'],
+                'localNotification.js': ['src/js/worker/localNotification.js']
             },
             options: {
                 browserifyOptions: {
@@ -43,7 +44,7 @@ module.exports = function(grunt) {
         
         watch: {
             scripts: {
-                files: ["**/*.js", "**/*.tpl"],
+                files: ["**/*.js", "**/*.tpl", "src/**/*.html"],
                 tasks: ["browserify"]
             },
             style: {
