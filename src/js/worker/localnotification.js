@@ -1,8 +1,8 @@
-var $ = require("jquery"),
-    URL = require("../const/url.js"),
-    simpleStorage = require("simpleStorage.js");
+(function(){
 
-module.exports = function() {
+	var $ = require("jquery"),
+	    URL = require("../const/url.js"),
+	    simpleStorage = require("simpleStorage.js");
 
 	$.get(URL.HOME, function(resp){
 		console.log(resp);
@@ -15,4 +15,4 @@ module.exports = function() {
 	    });
 	}, 5 * 60 * 1000);
 
-};
+})();
