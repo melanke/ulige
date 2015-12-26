@@ -6,8 +6,7 @@ module.exports = function(grunt) {
         browserify: {
           dist: {
             files: {
-                'lib.js': ['src/js/index.js'],
-                'localNotification.js': ['src/js/worker/localNotification.js']
+                'lib.js': ['src/js/index.js']
             },
             options: {
                 browserifyOptions: {

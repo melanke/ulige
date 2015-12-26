@@ -20,7 +20,6 @@ module.exports = function() {
 	var init = function(){
 		defaultInterface();
 		registerInteraction();
-		configurarNotification();
 
 		loadCache();
 		renderData();
@@ -97,143 +96,6 @@ module.exports = function() {
 		simpleStorage.set("maisNovos", maisNovos, { TTL: 5 * 60 * 1000 });
 		simpleStorage.set("categorias", categorias, { TTL: 5 * 60 * 1000 });
 	};
-
-///////////// LOCAL NOTIFICATION ///////////
-
-	var isNotificationEnabled = false;
-
-    var configurarNotification = function () {  
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register("localNotification.js")
-                    .then(initnotificationState);
-        }
-    };
-
-    var initnotificationState = function() {
-
-        if (!('showNotification' in ServiceWorkerRegistration.prototype)) {
-            alert("Seu navegador não suporta notificações");
-            return;
-        }
-
-        if (Notification.permission === 'denied') {
-            alert("Você negou a permissão de enviar notificações");
-            return;
-        }
-
-        if (!('PushManager' in window)) {
-            alert("Seu navegador não suporta notificações");
-            return;
-        }
-
-        navigator.serviceWorker.ready.then(function (serviceWorkerRegistration) {
-
-            // serviceWorkerRegistration.pushManager.getSubscription()
-            //         .then(function (subscription) {
-
-            //             var notificationButton = $('#localnotification');
-            //             notificationButton.prop("disabled", false);
-
-            //             if (!subscription) {
-            //                 return;
-            //             }
-
-            //             sendnotificationSubscriptionToServer(subscription);
-
-            //             notificationButton.html('Disabilitar Notificações');
-            //             isNotificationEnabled = true;
-            //         })
-            //         .catch(function (err) {
-            //             $.message({
-            //                 text: "Houve um erro, tente novamente mais tarde!",
-            //                 class: "error",
-            //                 timeout: 5000
-            //             });
-            //         });
-        });
-
-    };
-
-    var subscribeNotification = function() {
-
-        var notificationButton = $('#localnotification');
-        notificationButton.prop("disabled", true);
-
-        navigator.serviceWorker.ready.then(function (serviceWorkerRegistration) {
-            // serviceWorkerRegistration.pushManager.subscribe({userVisibleOnly: true})
-            //         .then(function (subscription) {
-
-            //             isNotificationEnabled = true;
-            //             notificationButton.html('Disabilitar Notificações');
-            //             notificationButton.prop("disabled", false);
-
-            //             return sendnotificationSubscriptionToServer(subscription);
-            //         })
-            //         .catch(function (e) {
-            //             if (Notification.permission === 'denied') {
-            //                 $.message({
-            //                     text: "Você negou a permissão de enviar notificações",
-            //                     class: "error",
-            //                     timeout: 5000
-            //                 });
-            //                 notificationButton.prop("disabled", true);
-            //             } else {
-            //                 $.message({
-            //                     text: "Houve um erro, tente novamente mais tarde!",
-            //                     class: "error",
-            //                     timeout: 5000
-            //                 });
-            //                 notificationButton.prop("disabled", false);
-            //                 notificationButton.html('Habilitar Notificações');
-            //             }
-            //         });
-        });
-    };
-
-    var unsubscribeNotification = function() {
-        var notificationButton = $('#localnotification');
-        notificationButton.prop("disabled", true);
-
-        navigator.serviceWorker.ready.then(function (serviceWorkerRegistration) {
-
-            // serviceWorkerRegistration.pushManager.getSubscription().then(
-            //         function (pushSubscription) { 
-            //             if (!pushSubscription) {
-            //                 isNotificationEnabled = false;
-            //                 notificationButton.prop("disabled", false);
-            //                 notificationButton.html('Habilitar Notificações');
-            //                 return;
-            //             }
-
-            //             var subscriptionId = pushSubscription.subscriptionId;
-
-            //             pushSubscription.unsubscribe().then(function (successful) {
-            //                 notificationButton.prop("disabled", false);
-            //                 notificationButton.html('Habilitar Notificações');
-            //                 isNotificationEnabled = false;
-            //             }).catch(function (e) {
-            //                 // We failed to unsubscribe, this can lead to  
-            //                 // an unusual state, so may be best to remove
-            //                 // the users data from your data store and
-            //                 // inform the user that you have done so
-
-            //                 $.message({
-            //                     text: "Houve um erro, tente novamente mais tarde!",
-            //                     class: "error",
-            //                     timeout: 5000
-            //                 });
-            //                 notificationButton.prop("disabled", false);
-            //                 notificationButton.html('Habilitar Notificações');
-            //             });
-            //         }).catch(function (e) {
-            //     $.message({
-            //         text: "Houve um erro, tente novamente mais tarde!",
-            //         class: "error",
-            //         timeout: 5000
-            //     });
-            // });
-        });
-    };
 
 ///////////// RENDER /////////////
 
@@ -321,14 +183,6 @@ module.exports = function() {
         $(document).on("click", "#maisNovos-direita", function(){
         	pausarAnimation();
         	andarMaisNovoDireita();
-        });
-
-        $(document).on("click", "#localnotification", function(){
-            if (isNotificationEnabled) {
-                unsubscribeNotification();
-            } else {
-                subscribeNotification();
-            }
         });
     };
 
