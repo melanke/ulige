@@ -4,7 +4,9 @@
 	    URL = require("../const/url.js"),
 	    simpleStorage = require("simpleStorage.js");
 
-	fetch("https://melanke-test.blogspot.com.br/feeds/posts/default/?alt=json&max-results=10").then(function(resp){
+	fetch("https://melanke-test.blogspot.com.br/feeds/posts/default/?alt=json&max-results=10", {
+	  mode: 'no-cors'
+	}).then(function(resp){
 		console.log(resp);
 	});
 
