@@ -4,7 +4,7 @@
 	    URL = require("../const/url.js"),
 	    simpleStorage = require("simpleStorage.js");
 
-	$.get(URL.HOME, function(resp){
+	fetch(URL.HOME).then(function(resp){
 		console.log(resp);
 	});
 
