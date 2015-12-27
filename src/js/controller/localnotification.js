@@ -3,7 +3,20 @@
     var $ = require("jquery"),
         simpleStorage = require("simpleStorage.js");
 
-    var isNotificationEnabled = false;
+    var categoriasQueSigo;
+
+    var init = function()
+    {
+        popularFormulario();
+        configurarNotification();
+        registerInteraction();
+    };
+
+    var popularFormulario = function()
+    {
+        categoriasQueSigo = simpleStorage.get("categoriasQueSigo") || [];
+        renderFormulario();
+    };
 
     var configurarNotification = function () {  
         if ('serviceWorker' in navigator) {
@@ -19,7 +32,6 @@
             return;
         }
 
-        // Let's check if the browser supports notifications
         if (!("Notification" in window)) {
             alert("Seu navegador não suporta notificações");
 
@@ -35,12 +47,44 @@
 
     var subscribeNotification = function() {
 
+        $("input[type=checkbox]:checked").each(function(){
+            $(this).data("label");
+
+            if (categoriasQueSigo.indexOf(label) > -1) {
+                categoriasQueSigo.push(label);
+            }
+        });
+
+        simpleStorage.set("categoriasQueSigo", categoriasQueSigo);
+
         navigator.serviceWorker.ready.then(function (serviceWorkerRegistration) {
 
         });
     };
 
-    configurarNotification();
-    subscribeNotification();
+//////////////////////// RENDER ///////////////////
+
+    var renderFormulario = function()
+    {
+        $("input[type=checkbox]").each(function(){
+            var el = $(this);
+            var label = el.data("label");
+
+            if (categoriasQueSigo.indexOf(label) > -1) {
+                el.prop("checked", true);
+            }
+        });
+    };
+
+    var registerInteraction = function()
+    {
+        $("form").submit(function(){
+            subscribeNotification();
+
+            return false;
+        });
+    };
+
+    init();
 
 })();

@@ -1,20 +1,67 @@
 (function(){
 
-	var $ = require("jquery"),
-	    URL = require("../const/url.js"),
-	    simpleStorage = require("simpleStorage.js");
+	var simpleStorage = require("simpleStorage.js"),
+		moment = require("moment");
 
-	self.cb = function(data){
-	    console.log(data);
+	var categoriasQueSigo,
+		horaUltimaNotificacao;
+
+	var init = function()
+	{
+		categoriasQueSigo = simpleStorage.get("categoriasQueSigo") || [];
+		horaUltimaNotificacao = simpleStorage.get("horaUltimaNotificacao");
+
+		if (horaUltimaNotificacao) {
+			horaUltimaNotificacao = moment(horaUltimaNotificacao);
+		}
+
+		initLoop();
 	};
 
-	importScripts('https://melanke-test.blogspot.com.br/feeds/posts/default/?alt=json&max-results=10&callback=cb');
+	var checkNewPosts = function() {
+		importScripts('https://melanke-test.blogspot.com.br/feeds/posts/default/?alt=json&max-results=10&callback=cb');
+	};
 
-	setInterval(function(){
-		self.registration.showNotification("Novo post", {  
-	      body: "Na categoria \"Entretenimento\"",  
+	self.cb = function(data){
+	    
+		for (var i in data.feed.entry) {
+			var post = data.feed.entry[i];	
+
+			if (!horaUltimaNotificacao || horaUltimaNotificacao.isBefore(post.published.$t)) {
+
+				for (var j in post.category) {
+					var category = post.category[j];
+
+					if (categoriasQueSigo[category.term]) {
+						existeNova(post, category.term);
+						break; //uma notificação por vez
+					}
+				}
+
+			}
+		}
+
+	};
+
+	var existeNova = function(post, categoria)
+	{
+		horaUltimaNotificacao = moment();
+		simpleStorage.set("horaUltimaNotificacao", horaUltimaNotificacao.format());
+
+		showNotification(post.title.$t, "Novo post em \""+categoria+"\"");
+	};
+
+	var showNotification = function(titulo, descricao) {
+		self.registration.showNotification(titulo, {  
+	      body: descricao,  
 	      icon: "https://cdn.rawgit.com/melanke/ulige/master/imgs/logo.png"
 	    });
-	}, 5 * 60 * 1000);
+	};
+
+	var initLoop = function()
+	{
+		//a cada 5 minutos
+		setInterval(checkNewPosts, 5 * 60 * 1000);
+	};
 
 })();
