@@ -1,7 +1,7 @@
-var $ = require("jquery"),
-    simpleStorage = require("simpleStorage.js");
+(function() {
 
-module.exports = function() {
+    var $ = require("jquery"),
+        simpleStorage = require("simpleStorage.js");
 
     var isNotificationEnabled = false;
 
@@ -43,4 +43,4 @@ module.exports = function() {
     configurarNotification();
     subscribeNotification();
 
-};
+})();
