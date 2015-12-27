@@ -48,7 +48,7 @@
     var subscribeNotification = function() {
 
         $("input[type=checkbox]:checked").each(function(){
-            $(this).data("label");
+            var label = $(this).data("label");
 
             if (categoriasQueSigo.indexOf(label) > -1) {
                 categoriasQueSigo.push(label);
