@@ -50,7 +50,7 @@
         $("input[type=checkbox]:checked").each(function(){
             var label = $(this).data("label");
 
-            if (categoriasQueSigo.indexOf(label) > -1) {
+            if (categoriasQueSigo.indexOf(label) < 0) {
                 categoriasQueSigo.push(label);
             }
         });
