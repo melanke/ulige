@@ -4,7 +4,7 @@
 	    URL = require("../const/url.js"),
 	    simpleStorage = require("simpleStorage.js");
 
-	fetch(URL.HOME).then(function(resp){
+	fetch("http://melanke-test.blogspot.com.br/feeds/posts/default/?alt=json&max-results=10").then(function(resp){
 		console.log(resp);
 	});
 
