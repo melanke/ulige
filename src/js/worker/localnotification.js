@@ -61,7 +61,8 @@
 	var initLoop = function()
 	{
 		//a cada 5 minutos
-		setInterval(checkNewPosts, 5 * 60 * 1000);
+		//setInterval(checkNewPosts, 5 * 60 * 1000);
+		checkNewPosts();
 	};
 
 	init();
