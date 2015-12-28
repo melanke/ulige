@@ -1,6 +1,6 @@
 (function(){
 
-	var simpleStorage = require("simpleStorage.js"),
+	var localforage = require("localforage"),
 		moment = require("moment");
 
 	var categoriasQueSigo,
@@ -8,8 +8,8 @@
 
 	var init = function()
 	{
-		categoriasQueSigo = simpleStorage.get("categoriasQueSigo") || [];
-		horaUltimaNotificacao = simpleStorage.get("horaUltimaNotificacao");
+		categoriasQueSigo = localforage.getItem("categoriasQueSigo") || [];
+		horaUltimaNotificacao = localforage.getItem("horaUltimaNotificacao");
 
 		if (horaUltimaNotificacao) {
 			horaUltimaNotificacao = moment(horaUltimaNotificacao);
@@ -46,7 +46,7 @@
 	var existeNova = function(post, categoria)
 	{
 		horaUltimaNotificacao = moment();
-		simpleStorage.set("horaUltimaNotificacao", horaUltimaNotificacao.format());
+		localforage.setItem("horaUltimaNotificacao", horaUltimaNotificacao.format());
 
 		showNotification(post.title.$t, "Novo post em \""+categoria+"\"");
 	};

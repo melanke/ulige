@@ -1,7 +1,7 @@
 (function() {
 
     var $ = require("jquery"),
-        simpleStorage = require("simpleStorage.js");
+        localforage = require("localforage");
 
     var categoriasQueSigo;
 
@@ -14,7 +14,7 @@
 
     var popularFormulario = function()
     {
-        categoriasQueSigo = simpleStorage.get("categoriasQueSigo") || [];
+        categoriasQueSigo = localforage.getItem("categoriasQueSigo") || [];
         renderFormulario();
     };
 
@@ -55,10 +55,10 @@
             }
         });
 
-        simpleStorage.set("categoriasQueSigo", categoriasQueSigo);
+        localforage.setItem("categoriasQueSigo", categoriasQueSigo, function() {
+            navigator.serviceWorker.ready.then(function (serviceWorkerRegistration) {
 
-        navigator.serviceWorker.ready.then(function (serviceWorkerRegistration) {
-
+            });
         });
     };
 
