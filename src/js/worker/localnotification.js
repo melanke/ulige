@@ -8,14 +8,19 @@
 
 	var init = function()
 	{
-		categoriasQueSigo = localforage.getItem("categoriasQueSigo") || [];
-		horaUltimaNotificacao = localforage.getItem("horaUltimaNotificacao");
+		localforage.getItem("categoriasQueSigo", function(valueC) {
+            categoriasQueSigo = valueC || [];
 
-		if (horaUltimaNotificacao) {
-			horaUltimaNotificacao = moment(horaUltimaNotificacao);
-		}
+            localforage.getItem("horaUltimaNotificacao", function(valueH){
+            	horaUltimaNotificacao = valueH;
+            });            
 
-		initLoop();
+			if (horaUltimaNotificacao) {
+				horaUltimaNotificacao = moment(horaUltimaNotificacao);
+			}
+
+			initLoop();
+        });
 	};
 
 	var checkNewPosts = function() {

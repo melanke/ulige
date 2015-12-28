@@ -14,8 +14,10 @@
 
     var popularFormulario = function()
     {
-        categoriasQueSigo = localforage.getItem("categoriasQueSigo") || [];
-        renderFormulario();
+        localforage.getItem("categoriasQueSigo", function(value) {
+            categoriasQueSigo = value || [];
+            renderFormulario();
+        });
     };
 
     var configurarNotification = function () {  
