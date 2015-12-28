@@ -32,7 +32,7 @@
 				for (var j in post.category) {
 					var category = post.category[j];
 
-					if (categoriasQueSigo[category.term]) {
+					if (categoriasQueSigo.indexOf(category.term)) {
 						existeNova(post, category.term);
 						break; //uma notificação por vez
 					}
