@@ -13,13 +13,13 @@
 
             localforage.getItem("horaUltimaNotificacao", function(er, valueH){
             	horaUltimaNotificacao = valueH;
-            });            
 
-			if (horaUltimaNotificacao) {
-				horaUltimaNotificacao = moment(horaUltimaNotificacao);
-			}
+				if (horaUltimaNotificacao) {
+					horaUltimaNotificacao = moment(horaUltimaNotificacao);
+				}
 
-			initLoop();
+				initLoop();
+            }); 
         });
 	};
 
