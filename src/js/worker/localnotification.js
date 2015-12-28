@@ -64,4 +64,6 @@
 		setInterval(checkNewPosts, 5 * 60 * 1000);
 	};
 
+	init();
+
 })();
