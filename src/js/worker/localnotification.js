@@ -8,10 +8,10 @@
 
 	var init = function()
 	{
-		localforage.getItem("categoriasQueSigo", function(valueC) {
+		localforage.getItem("categoriasQueSigo", function(er, valueC) {
             categoriasQueSigo = valueC || [];
 
-            localforage.getItem("horaUltimaNotificacao", function(valueH){
+            localforage.getItem("horaUltimaNotificacao", function(er, valueH){
             	horaUltimaNotificacao = valueH;
             });            
 

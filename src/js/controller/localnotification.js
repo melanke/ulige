@@ -14,7 +14,7 @@
 
     var popularFormulario = function()
     {
-        localforage.getItem("categoriasQueSigo", function(value) {
+        localforage.getItem("categoriasQueSigo", function(er, value) {
             categoriasQueSigo = value || [];
             renderFormulario();
         });
