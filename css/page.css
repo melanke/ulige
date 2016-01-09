@@ -414,7 +414,7 @@ input {
 
 #staticpage-content {
   padding: 20px; }
-  #staticpage-content .blog-pager, #staticpage-content .blog-feeds, #staticpage-content iframe {
+  #staticpage-content .blog-pager, #staticpage-content .blog-feeds, #staticpage-content iframe, #staticpage-content .comments {
     display: none; }
 
 /*# sourceMappingURL=page.css.map */
