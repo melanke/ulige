@@ -13,7 +13,7 @@ module.exports = function(tagname) {
 	var init = function(){
 		defaultInterface();
 
-		postsDaTag = cacheHandler.getPostsDaTag(tagname) || [];
+		postsDaTag = cacheHandler.getPostsDaTag(tagname);
 		renderData();
 
 	    $.get(URL.TAG(tagname), function(resp){
