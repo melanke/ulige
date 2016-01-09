@@ -72,7 +72,7 @@
 	var showNotification = function(titulo, descricao) {
 		self.registration.showNotification(titulo, {  
 	      body: descricao,  
-	      icon: "https://cdn.rawgit.com/melanke/ulige/master/imgs/logo.png"
+	      icon: "http://melanke.github.io/ulige/imgs/logo.png"
 	    });
 	};
 
