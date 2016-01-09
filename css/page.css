@@ -417,7 +417,8 @@ input {
   #staticpage-content .blog-pager, #staticpage-content .blog-feeds, #staticpage-content iframe, #staticpage-content .comments {
     display: none; }
   #staticpage-content label {
-    display: block; }
+    display: block;
+    margin-bottom: 10px; }
   #staticpage-content input[name="_replyto"] {
     width: 315px; }
   #staticpage-content textarea[name="body"] {
