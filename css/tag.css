@@ -422,9 +422,6 @@ input {
     color: #F26101; }
   #main .wrapper .liPostThumbnail .categoria {
     display: none; }
-  #main .wrapper .liPostThumbnail .texto {
-    height: 50px;
-    display: block; }
   @media screen and (min-width: 1080px) {
     #main .wrapper .liPostThumbnail {
       display: block;
@@ -433,7 +430,8 @@ input {
       float: left;
       margin-bottom: 30px;
       margin-left: 55px;
-      margin-right: 55px; }
+      margin-right: 55px;
+      height: 260px; }
       #main .wrapper .liPostThumbnail .info-holder {
         position: relative;
         height: 0;
@@ -476,7 +474,8 @@ input {
       float: left;
       margin-bottom: 30px;
       margin-left: 35px;
-      margin-right: 35px; }
+      margin-right: 35px;
+      height: 305px; }
       #main .wrapper .liPostThumbnail .title-holder {
         position: relative;
         height: 0;

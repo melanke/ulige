@@ -18,17 +18,13 @@
 				display: none;
 			}
 
-			.texto {
-				height: 50px;
-				display: block;
-			}
-
 			@media #{$onlyDesktop} {
 				@include liPostThumbnailBig();
 				float: left;
 				margin-bottom: 30px;
 				margin-left: 55px;
 				margin-right: 55px;
+				height: 260px;
 			}
 
 			@media #{$onlyTablet} {
@@ -37,6 +33,7 @@
 				margin-bottom: 30px;
 				margin-left: 35px;
 				margin-right: 35px;
+				height: 305px;
 			}
 
 			@media #{$onlyPhone} {
