@@ -4,7 +4,7 @@ var $ = require("jquery"),
 module.exports = function() {
 
 	var init = function(){
-		var page = $("#body").html();
+		var page = $("#staticpage-content").html();
 		defaultInterface();
 		$("#main").html(page);
 	};

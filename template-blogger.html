@@ -168,7 +168,9 @@
 
               <b:else/>
                   <b:if cond='data:blog.pageType == "static_page"'>
-                    <data:post.body />
+                    <div id="staticpage-content">
+                      <data:post.body />
+                    </div>
 
                     <script type='text/javascript'>
                         lib.page();
