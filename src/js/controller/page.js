@@ -6,7 +6,7 @@ module.exports = function() {
 	var init = function(){
 		var page = $("#staticpage-content");
 		defaultInterface();
-		$("#main").append(page);
+		$("#main").html(page);
 	};
 
 	init();
