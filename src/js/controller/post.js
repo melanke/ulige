@@ -37,7 +37,7 @@ module.exports = function() {
 				$t: dataV.find("#title").html()
 			},
 			content: {
-				$t: dataV.find("#body").html()
+				$t: dataV.find("#p-body").html()
 			},
 			moment: moment(dataV.find("#timestampISO8601").html()),
 			dateHeader: dataV.find("#dateHeader").html(),
