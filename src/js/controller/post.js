@@ -92,7 +92,7 @@ module.exports = function() {
 			"Viagem",
 			"Música",
 			"Arte",
-			"Coluna Discursiva",
+			"Discursiva",
 			"Cozinha Ulige",
 			"A Cerveja Vive",
 			"Ulige Entrevista",
