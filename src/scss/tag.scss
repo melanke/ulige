@@ -18,6 +18,11 @@
 				display: none;
 			}
 
+			.texto {
+				height: 50px;
+				display: block;
+			}
+
 			@media #{$onlyDesktop} {
 				@include liPostThumbnailBig();
 				float: left;

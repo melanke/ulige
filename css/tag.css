@@ -422,6 +422,9 @@ input {
     color: #F26101; }
   #main .wrapper .liPostThumbnail .categoria {
     display: none; }
+  #main .wrapper .liPostThumbnail .texto {
+    height: 50px;
+    display: block; }
   @media screen and (min-width: 1080px) {
     #main .wrapper .liPostThumbnail {
       display: block;
