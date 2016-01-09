@@ -4,6 +4,7 @@ var $ = require("jquery"),
 module.exports = {
 	getPostsDaTag: function(tagname)
 	{
+		var postsDaTag;
 		var categorias = simpleStorage.get("categorias");
 		if (categorias) {
 			postsDaTag = categorias[tagname];
