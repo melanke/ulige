@@ -11,6 +11,9 @@ module.exports = function(grunt) {
                 'localnotification-worker.js': ['src/js/worker/localnotification.js']
             },
             options: {
+                browserifyOptions: {
+                    debug: true
+                },
                 transform: ['jstify']
             }
 
