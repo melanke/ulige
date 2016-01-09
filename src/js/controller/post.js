@@ -88,7 +88,7 @@ module.exports = function() {
 
 	var obterCategoriaPrincipal = function(){
 		var categorias = [
-			"Filmes e Series",
+			"Filmes e Séries",
 			"Viagem",
 			"Música",
 			"Arte",

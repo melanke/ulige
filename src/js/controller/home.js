@@ -37,7 +37,7 @@ module.exports = function() {
 
 		maisNovos = [];
 		categorias = {
-			"Filmes e Series": [],
+			"Filmes e Séries": [],
 			Viagem: [],
 			"Música": [],
 			Arte: [],
