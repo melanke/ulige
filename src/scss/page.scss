@@ -1,0 +1,9 @@
+@import "default.scss";
+
+#staticpage-content {
+	padding: 20px;
+
+	.blog-pager, .blog-feeds, iframe {
+		display: none;
+	}
+}

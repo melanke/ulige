@@ -83,7 +83,7 @@
             <b:else/>
                 <b:if cond='data:blog.pageType == "static_page"'>
                   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"/>
-                  <link href='http://melanke.github.io/ulige/css/default.css' rel='stylesheet' type='text/css'/>
+                  <link href='http://melanke.github.io/ulige/css/page.css' rel='stylesheet' type='text/css'/>
                 </b:if>
             </b:if>
 
@@ -169,7 +169,14 @@
               <b:else/>
                   <b:if cond='data:blog.pageType == "static_page"'>
                     <div id="staticpage-content">
-                      <data:post.body />
+                      <b:section id="staticPage" showaddelement='no'>
+                        <b:widget id='Blog2' locked='true' title='Postagens no blog' type='Blog'>
+                            <b:includable id='post' var='post'>
+                              <h1><data:post.title/></h1>
+                              <data:post.body />
+                            </b:includable>
+                        </b:widget>
+                      </b:section>
                     </div>
 
                     <script type='text/javascript'>
