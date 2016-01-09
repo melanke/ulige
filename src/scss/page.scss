@@ -6,4 +6,17 @@
 	.blog-pager, .blog-feeds, iframe, .comments {
 		display: none;
 	}
+
+	label {
+		display: block;
+	}
+
+	input[name="_replyto"] {
+		width: 315px;
+	}
+
+	textarea[name="body"] {
+	    width: 400px;
+		height: 200px;
+	}
 }
