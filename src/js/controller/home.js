@@ -1,5 +1,6 @@
 var $ = require("jquery"),
 	URL = require("../const/url.js"),
+	categorias = require("../const/categorias.js"),
 	maisNovosTpl = require("../../tmpl/maisNovos.html"),
 	categoriasTpl = require("../../tmpl/categorias.html"),
 	liPostThumbnail = require("../../tmpl/liPostThumbnail.html"),
@@ -12,7 +13,7 @@ var Isotope = require("isotope-layout");
 module.exports = function() {
 
 	var maisNovos,
-		categorias,
+		categoriasComUltimosPosts,
 		dataRendered = false,
 		maisNovosInterval,
         maisNovosTimeout;
@@ -36,16 +37,12 @@ module.exports = function() {
 	var processData = function(data) {
 
 		maisNovos = [];
-		categorias = {
-			"Filmes e Séries": [],
-			Viagem: [],
-			"Música": [],
-			Arte: [],
-			"Discursiva": [],
-			"Cozinha Ulige": [],
-			"A Cerveja Vive": [],
-			"Ulige Entrevista": [],
-			Outros: []
+
+		categoriasComUltimosPosts = {};
+
+		//separa as categorias em formato de mapa de array
+		for (var i in categorias) {
+			categoriasComUltimosPosts[categorias[i]] = [];
 		};
 
 		for (var i in data.feed.entry) {
@@ -61,12 +58,12 @@ module.exports = function() {
 
 				var category = post.category[j];
 
-				if (categorias[category.term]) {
+				if (categoriasComUltimosPosts[category.term]) {
 					post.categoriaPrincipal = category.term;
 					temCategoriaPrincipal = true;
 
 					if (i >= 4) {
-						categorias[category.term].push(post);
+						categoriasComUltimosPosts[category.term].push(post);
 					}
 
 					// com break os posts são de apenas uma categoria
@@ -75,7 +72,7 @@ module.exports = function() {
 			}
 
 			if (!temCategoriaPrincipal && i >= 4) {
-				categorias.Outros.push(post);
+				categoriasComUltimosPosts.Outros.push(post);
 			}
 
 			postProcessor.single(post);
@@ -86,7 +83,7 @@ module.exports = function() {
 	var loadCache = function()
 	{
 		maisNovos = simpleStorage.get("maisNovos");
-		categorias = simpleStorage.get("categorias");
+		categoriasComUltimosPosts = simpleStorage.get("categorias");
 	};
 
 	var registerCache = function()
@@ -94,14 +91,14 @@ module.exports = function() {
 		//caches de 5 minutos
 
 		simpleStorage.set("maisNovos", maisNovos, { TTL: 5 * 60 * 1000 });
-		simpleStorage.set("categorias", categorias, { TTL: 5 * 60 * 1000 });
+		simpleStorage.set("categorias", categoriasComUltimosPosts, { TTL: 5 * 60 * 1000 });
 	};
 
 ///////////// RENDER /////////////
 
 	var renderData = function()
 	{
-		if (dataRendered || !maisNovos || !categorias) {
+		if (dataRendered || !maisNovos || !categoriasComUltimosPosts) {
 			return;
 		}
 
@@ -109,10 +106,10 @@ module.exports = function() {
 
 		$("#main").append(maisNovosTpl({ posts: maisNovos }));
 
-		categorias.liPostThumbnail = liPostThumbnail;
+		categoriasComUltimosPosts.liPostThumbnail = liPostThumbnail;
 
 		try {
-			$("#main").append(categoriasTpl(categorias));
+			$("#main").append(categoriasTpl(categoriasComUltimosPosts));
 		} catch (e) {}
 
 		initMaisNovosAnimation();

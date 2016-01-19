@@ -1,5 +1,6 @@
 var $ = require("jquery"),
 	URL = require("../const/url.js"),
+	categorias = require("../const/categorias.js"),
 	liPostThumbnail = require("../../tmpl/liPostThumbnailBig.html"),
 	defaultInterface = require("../service/defaultInterface.js"),
 	postProcessor = require("../service/postProcessor.js"),
@@ -13,6 +14,15 @@ module.exports = function(tagname) {
 	var init = function(){
 		defaultInterface();
 
+		if (tagname === "Outros") {
+			carregarOutros();
+		} else {
+			carregarPostsDaTag();
+		}
+	};
+
+	var carregarPostsDaTag = function() {
+
 		postsDaTag = cacheHandler.getPostsDaTag(tagname);
 		renderData();
 
@@ -23,6 +33,44 @@ module.exports = function(tagname) {
 	    	renderData();
 
 	    });
+
+	};
+
+	var carregarOutros = function() {
+		$.get(URL.HOME, function(resp){
+
+	    	processOutros(resp);
+	    	renderData();
+
+	    });
+	};
+
+	var processOutros = function(data) {
+		postsDaTag = [];
+
+		for (var i in data.feed.entry) {
+			var post = data.feed.entry[i];
+
+			var categoriaP = obterCategoriaPrincipal(post);
+
+			if (categoriaP == null) {
+				postProcessor.single(post);
+				postsDaTag.push(post);
+			}
+		}
+	};
+
+	var obterCategoriaPrincipal = function(post){
+		for (var j in post.category) {
+
+			var category = post.category[j].term;
+
+			if (category !== "Outros" && categorias.indexOf(category) > -1) {
+				return category;
+			}
+		}
+
+		return null;
 	};
 
 	var renderData = function()

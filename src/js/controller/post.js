@@ -1,5 +1,6 @@
 var $ = require("jquery"),
 	URL = require("../const/url.js"),
+	categorias = require("../const/categorias.js"),
 	tplPost = require("../../tmpl/post.html"),
 	liPostThumbnail = require("../../tmpl/liPostThumbnail.html"),
 	defaultInterface = require("../service/defaultInterface.js"),
@@ -87,18 +88,6 @@ module.exports = function() {
 	};
 
 	var obterCategoriaPrincipal = function(){
-		var categorias = [
-			"Filmes e Séries",
-			"Viagem",
-			"Música",
-			"Arte",
-			"Discursiva",
-			"Cozinha Ulige",
-			"A Cerveja Vive",
-			"Ulige Entrevista",
-			"Outros"
-		];
-
 		for (var j in post.labels) {
 
 			var category = post.labels[j];
