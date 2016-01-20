@@ -19,11 +19,11 @@
         <meta name="google-site-verification" content="u__KWeN-giGJhuQd-bRmRoMGfAHOyKWHhqAjl0h5NBA" />
         <meta property="fb:app_id" content="1776817549211710" />
         <!-- IMAGE -->
-        <b:if cond='data:blog.postImageThumbnailUrl'>
-          <meta expr:content='data:blog.postImageThumbnailUrl' property='og:image'/>
-          <meta expr:content='data:blog.postImageThumbnailUrl' itemprop="image"/>
-          <meta expr:content='data:blog.postImageThumbnailUrl' name="twitter:image:src"/>
-          <link expr:href='data:blog.postImageThumbnailUrl' rel='image_src'/>
+        <b:if cond='data:blog.postImageUrl'>
+          <meta expr:content='data:blog.postImageUrl' property='og:image'/>
+          <meta expr:content='data:blog.postImageUrl' itemprop="image"/>
+          <meta expr:content='data:blog.postImageUrl' name="twitter:image:src"/>
+          <link expr:href='data:blog.postImageUrl' rel='image_src'/>
         <b:else/>
           <meta content='http://melanke.github.io/ulige/imgs/logo.png' property='og:image'/>
           <meta content='http://melanke.github.io/ulige/imgs/logo.png' itemprop="image"/>
@@ -56,6 +56,16 @@
         <meta name="msapplication-TileImage" content="http://melanke.github.io/ulige/imgs/icons.ico/ms-icon-144x144.png"/>
         <meta name="theme-color" content="#f26101"/>
 
+        <b:if cond='data:blog.metaDescription != &quot;&quot;'>
+
+            <!-- DESCRIPTION -->
+            <meta expr:content='data:blog.metaDescription' property='og:description'/>
+            <meta expr:content='data:blog.metaDescription' name="Description"/>
+            <meta expr:content='data:blog.metaDescription' itemprop="description"/>
+            <meta expr:content='data:blog.metaDescription' name="twitter:description"/>
+
+        </b:if>
+
         
         <b:if cond='data:blog.pageType == &quot;index&quot;'>
 <!-- BLOG -->
@@ -79,8 +89,9 @@
             <meta content='article' property='og:type'/>
             <!-- CSS -->
             <b:if cond='data:blog.pageType == &quot;item&quot;'>
-                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"/>
-                <link href='http://melanke.github.io/ulige/css/post.css' rel='stylesheet' type='text/css'/>
+
+              <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"/>
+              <link href='http://melanke.github.io/ulige/css/post.css' rel='stylesheet' type='text/css'/>
             <b:else/>
                 <b:if cond='data:blog.pageType == "static_page"'>
                   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"/>
@@ -110,7 +121,7 @@
 
         <div id="body">
 
-          <script src='http://melanke.github.io/ulige/lib.min.js'/>
+          <script src='http://melanke.github.io/ulige/lib.js'/>
               
 
           <b:if cond='data:blog.pageType == &quot;index&quot;'>
@@ -132,11 +143,16 @@
                     <b:widget id='Blog1' locked='true' title='Postagens no blog' type='Blog'>
                         <b:includable id='post' var='post'>
 
-                          <!-- DESCRIPTION -->
-                          <meta expr:content='data:post.snippet' property='og:description'/>
-                          <meta expr:content='data:post.snippet' name="Description"/>
-                          <meta expr:content='data:post.snippet' itemprop="description"/>
-                          <meta expr:content='data:post.snippet' name="twitter:description"/>
+                            <b:if cond='data:blog.metaDescription == &quot;&quot;'>
+                                <!-- DESCRIPTION -->
+                                <meta expr:content='data:post.snippet' property='og:description'/>
+                                <meta expr:content='data:post.snippet' name="Description"/>
+                                <meta expr:content='data:post.snippet' itemprop="description"/>
+                                <meta expr:content='data:post.snippet' name="twitter:description"/>
+
+                            </b:if>
+
+
 
                           <div id="data-meta">
                             <div id="dateHeader"><data:post.dateHeader/></div>

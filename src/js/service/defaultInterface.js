@@ -18,9 +18,21 @@ module.exports =  function(){
 	{
 		if (query.length) {
 			$.get(URL.SEARCH(query), function(resp){
-				posts = resp.feed.entry;
-				processResultadoBusca();
-				renderResultadoBusca();
+				
+				if (resp.feed.entry) {
+
+					posts = resp.feed.entry;
+					processResultadoBusca();
+					renderResultadoBusca();
+				} else {
+
+					$.get(URL.SEARCH(query.replace(/\w+[.!?]?$/, '')), function(resp){
+						posts = resp.feed.entry;
+						processResultadoBusca();
+						renderResultadoBusca();
+					});
+				}
+
 			});
 		} else {
 			posts = null;
