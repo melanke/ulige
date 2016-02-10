@@ -443,6 +443,7 @@ input {
 
 ::-webkit-scrollbar {
     width: 15px;
+    z-index: 3;
 }
 ::-webkit-scrollbar-button {
     background: $laranja;
@@ -452,7 +453,6 @@ input {
 }
 ::-webkit-scrollbar-thumb {
     background: $laranja;
-    z-index: 3;
 }
 
 /** IDS **/
