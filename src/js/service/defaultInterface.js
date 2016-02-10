@@ -4,8 +4,6 @@ var $ = require("jquery"),
 	defaultTpl = require("../../tmpl/default.html"),
 	liPostThumbnail = require("../../tmpl/liPostThumbnail.html"),
 	postProcessor = require("../service/postProcessor.js");
-
-require('perfect-scrollbar/jquery')($);
     
 module.exports =  function(){
 
@@ -81,9 +79,7 @@ module.exports =  function(){
 		};
 
 		searchView.on('search', search);
-		searchView.keyup(search);
-
-		$('#body').perfectScrollbar();		
+		searchView.keyup(search);	
 	};
 
 	init();
