@@ -448,18 +448,20 @@ input {
     background: $laranja;
 }
 ::-webkit-scrollbar-track-piece {
-    background: white;
+    background: transparent;
 }
 ::-webkit-scrollbar-thumb {
     background: $laranja;
+    z-index: 3;
 }
 
 /** IDS **/
 
 #header {
     position: fixed;
-    left: 0;
-    right: 15px;
+    width: 100%;
+    // left: 0;
+    // right: 15px;
     height: 102px;
     background: white;
     z-index: 2;
