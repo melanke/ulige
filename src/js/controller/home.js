@@ -1,8 +1,9 @@
 var $ = require("jquery"),
 	URL = require("../const/url.js"),
 	categorias = require("../const/categorias.js"),
+	categoriasHome = require("../const/categoriasHome.js"),
 	maisNovosTpl = require("../../tmpl/maisNovos.html"),
-	categoriasTpl = require("../../tmpl/categorias.html"),
+	liCategoriaHomeTpl = require("../../tmpl/liCategoriaHome.html"),
 	liPostThumbnail = require("../../tmpl/liPostThumbnail.html"),
 	defaultInterface = require("../service/defaultInterface.js"),
 	postProcessor = require("../service/postProcessor.js"),
@@ -106,10 +107,17 @@ module.exports = function() {
 
 		$("#main").append(maisNovosTpl({ posts: maisNovos }));
 
-		categoriasComUltimosPosts.liPostThumbnail = liPostThumbnail;
+		$("#main").append("<div id='categorias'></div>");
 
 		try {
-			$("#main").append(categoriasTpl(categoriasComUltimosPosts));
+			for (var i in categoriasHome) {
+				$("#categorias").append(liCategoriaHomeTpl({
+					nome: i,
+					config: categoriasHome[i],
+					post1: liPostThumbnail({ post: categoriasComUltimosPosts[i][0] }),
+					post2: liPostThumbnail({ post: categoriasComUltimosPosts[i][1] })
+				}));
+			}
 		} catch (e) {}
 
 		initMaisNovosAnimation();

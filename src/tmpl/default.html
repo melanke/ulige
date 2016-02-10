@@ -5,15 +5,9 @@
 		<div id="menu-holder">
 			<a id="menu"></a>
 			<div id="menu-dropdown">
-				<a href="/search/label/Filmes e Séries">Filmes e Séries</a>
-				<a href="/search/label/Viagem">Viagem</a>
-				<a href="/search/label/Cozinha Ulige">Cozinha Ulige</a>
-				<a href="/search/label/Discursiva">Discursiva</a>
-				<a href="/search/label/A Cerveja Vive">A Cerveja Vive</a>
-				<a href="/search/label/Música">Música</a>
-				<a href="/search/label/Arte">Arte</a>
-				<a href="/search/label/Ulige Entrevista">Ulige Entrevista</a>
-				<a href="/search/label/Outros">Outros</a>
+				<% for (var i in categorias) { var c = categorias[i]; %>
+					<a href="/search/label/<%= c %>"><%= c %></a>
+				<% } %>
 			</div>
 		</div>
 

@@ -1,5 +1,6 @@
 var $ = require("jquery"),
 	URL = require("../const/url.js"),
+	categorias = require("../const/categorias.js"),
 	defaultTpl = require("../../tmpl/default.html"),
 	liPostThumbnail = require("../../tmpl/liPostThumbnail.html"),
 	postProcessor = require("../service/postProcessor.js");
@@ -10,7 +11,10 @@ module.exports =  function(){
 
 	var init = function()
 	{
-		$("#body").html(defaultTpl());
+		$("#body").html(defaultTpl({
+			categorias: categorias
+		}));
+
 		registerInteraction();
 	};
 

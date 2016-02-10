@@ -5,7 +5,10 @@ module.exports = [
 	"Arte",
 	"Discursiva",
 	"Cozinha Ulige",
-	"A Cerveja Vive",
+	"Especial Olimpíadas 2016",
 	"Ulige Entrevista",
+	"Curiosidades",
+	"Ulisses Tavares",
+	"A Cerveja Vive",
 	"Outros"
 ];
