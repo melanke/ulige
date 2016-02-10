@@ -206,23 +206,11 @@ input {
       width: 100%;
       margin: 0; } }
 
-::-webkit-scrollbar {
-  width: 15px;
-  z-index: 3; }
-
-::-webkit-scrollbar-button {
-  background: #F26101; }
-
-::-webkit-scrollbar-track-piece {
-  background: transparent; }
-
-::-webkit-scrollbar-thumb {
-  background: #F26101; }
-
 /** IDS **/
 #header {
   position: fixed;
-  width: 100%;
+  left: 0;
+  right: 15px;
   height: 102px;
   background: white;
   z-index: 2;
