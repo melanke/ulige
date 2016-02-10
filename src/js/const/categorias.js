@@ -7,7 +7,7 @@ module.exports = [
 	"Cozinha Ulige",
 	"Especial Olimpíadas 2016",
 	"Ulige Entrevista",
-	"Curiosidades",
+	"Curiosidade",
 	"Ulisses Tavares",
 	"A Cerveja Vive",
 	"Outros"

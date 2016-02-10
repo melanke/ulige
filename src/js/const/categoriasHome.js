@@ -7,7 +7,7 @@ module.exports = {
 	"Música": "horizontal bbaixo",
 	"Arte": "horizontal gray",
 	"Ulige Entrevista": "vertical bbaixo",
-	"Curiosidades": "horizontal bdireita bbaixo",
+	"Curiosidade": "horizontal bdireita bbaixo",
 	"Ulisses Tavares": "vertical bdireita",
 	"A Cerveja Vive": "horizontal gray",
 	"Outros": "horizontal"
