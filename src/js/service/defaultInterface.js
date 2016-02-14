@@ -21,8 +21,8 @@ module.exports =  function(){
 
 	var buscar = function(query)
 	{
-		if (query.length) {
-			
+		if (query.length > 2) {
+
 			analytics.busca(query);
 
 			$.get(URL.SEARCH(query), function(resp){
