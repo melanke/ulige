@@ -3,7 +3,8 @@ var $ = require("jquery"),
 	categorias = require("../const/categorias.js"),
 	defaultTpl = require("../../tmpl/default.html"),
 	liPostThumbnail = require("../../tmpl/liPostThumbnail.html"),
-	postProcessor = require("../service/postProcessor.js");
+	postProcessor = require("../service/postProcessor.js"),
+	analytics = require("./analytics")();
     
 module.exports =  function(){
 
@@ -21,6 +22,9 @@ module.exports =  function(){
 	var buscar = function(query)
 	{
 		if (query.length) {
+			
+			analytics.busca(query);
+
 			$.get(URL.SEARCH(query), function(resp){
 				
 				if (resp.feed.entry) {
