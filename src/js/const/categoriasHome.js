@@ -10,5 +10,5 @@ module.exports = {
 	"Curiosidade": "horizontal bdireita bbaixo",
 	"Ulisses Tavares": "vertical bdireita",
 	"A Cerveja Vive": "horizontal gray",
-	"Outros": "horizontal"
+	"Variedades": "horizontal"
 };

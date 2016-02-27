@@ -10,5 +10,5 @@ module.exports = [
 	"Curiosidade",
 	"Ulisses Tavares",
 	"A Cerveja Vive",
-	"Outros"
+	"Variedades"
 ];

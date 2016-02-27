@@ -14,7 +14,7 @@ module.exports = function(tagname) {
 	var init = function(){
 		defaultInterface();
 
-		if (tagname === "Outros") {
+		if (tagname === "Variedades") {
 			carregarOutros();
 		} else {
 			carregarPostsDaTag();
@@ -65,7 +65,7 @@ module.exports = function(tagname) {
 
 			var category = post.category[j].term;
 
-			if (category !== "Outros" && categorias.indexOf(category) > -1) {
+			if (category !== "Variedades" && categorias.indexOf(category) > -1) {
 				return category;
 			}
 		}

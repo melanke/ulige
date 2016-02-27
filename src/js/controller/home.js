@@ -73,7 +73,7 @@ module.exports = function() {
 			}
 
 			if (!temCategoriaPrincipal && i >= 4) {
-				categoriasComUltimosPosts.Outros.push(post);
+				categoriasComUltimosPosts.Variedades.push(post);
 			}
 
 			postProcessor.single(post);
