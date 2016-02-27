@@ -182,7 +182,9 @@ module.exports = function() {
 	};
 
 	var initAdsense = function() {
-		(adsbygoogle = window.adsbygoogle || []).push({});
+		$(".adsbygoogle").each(function () { 
+			(adsbygoogle = window.adsbygoogle || []).push({}); 
+		});
 	};
 
 	var initComentarios = function()
