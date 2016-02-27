@@ -139,6 +139,7 @@ module.exports = function() {
 			$("#cover").backstretch(post.cover);
 		}
 
+		initAdsense();
 		initComentarios();
 		initShare();
 	};
@@ -178,6 +179,10 @@ module.exports = function() {
 		} else {
 			relacionadosV.hide();
 		}
+	};
+
+	var initAdsense = function() {
+		(adsbygoogle = window.adsbygoogle || []).push({});
 	};
 
 	var initComentarios = function()
