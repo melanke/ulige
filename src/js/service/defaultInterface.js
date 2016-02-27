@@ -1,4 +1,5 @@
 var $ = require("jquery"),
+	simpleStorage = require("simpleStorage.js"),
 	URL = require("../const/url.js"),
 	categorias = require("../const/categorias.js"),
 	defaultTpl = require("../../tmpl/default.html"),
@@ -16,6 +17,7 @@ module.exports =  function(){
 			categorias: categorias
 		}));
 
+		guardarUsuario();
 		registerInteraction();
 	};
 
@@ -47,6 +49,27 @@ module.exports =  function(){
 			renderResultadoBusca();
 		}
 	};
+
+	var guardarUsuario = function() {
+		window.token = simpleStorage.get("token");
+
+		if (!window.token) {
+			window.token = gerarToken();
+			simpleStorage.set("token", window.token);
+		}
+
+		analytics.acesso(geoplugin_countryCode(), window.token);
+	};
+
+	var gerarToken = function() {
+	    var text = "";
+	    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+	    for( var i=0; i < 5; i++ )
+	        text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+	    return text;
+	}
 
 	var processResultadoBusca = function()
 	{

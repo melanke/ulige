@@ -16,6 +16,14 @@ module.exports = function() {
 			  eventAction: 'Digitou',
 			  eventLabel: textoDaBusca
 			});
+		},
+		acesso: function(local, cookie) {
+			ga('send', {
+			  hitType: 'event',
+			  eventCategory: 'Usuario',
+			  eventAction: local,
+			  eventLabel: cookie
+			});
 		}
 	};
 
