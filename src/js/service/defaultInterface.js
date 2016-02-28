@@ -58,7 +58,9 @@ module.exports =  function(){
 			simpleStorage.set("token", window.token);
 		}
 
-		analytics.acesso(geoplugin_countryCode(), window.token);
+		if (geoplugin_countryCode) {
+			analytics.acesso(geoplugin_countryCode(), window.token);
+		}
 	};
 
 	var gerarToken = function() {
