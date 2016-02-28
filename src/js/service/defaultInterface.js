@@ -58,7 +58,7 @@ module.exports =  function(){
 			simpleStorage.set("token", window.token);
 		}
 
-		if (geoplugin_countryCode) {
+		if (window.geoplugin_countryCode) {
 			analytics.acesso(geoplugin_countryCode(), window.token);
 		}
 	};
