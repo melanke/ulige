@@ -8,8 +8,7 @@ var $ = require("jquery"),
 
 module.exports = function(tagname) {
 
-	var postsDaTag,
-		dataRendered = false;
+	var postsDaTag;
 
 	var init = function(){
 		defaultInterface();
@@ -75,13 +74,13 @@ module.exports = function(tagname) {
 
 	var renderData = function()
 	{
-		if (dataRendered || !postsDaTag) {
+		if (!postsDaTag) {
 			return;
 		}
 
 		$(".loading").remove();
 
-		$("#main").append("<div class='wrapper'></div>");
+		$("#main").html("<div class='wrapper'></div>");
 
 		var wrapper = $("#main .wrapper");
 
@@ -92,8 +91,6 @@ module.exports = function(tagname) {
 		}
 
 		wrapper.append("<div class='clear'></div>");
-
-		dataRendered = true;
 	};
 
 	init();
