@@ -658,6 +658,7 @@ input {
             }
 
             .nav {
+                margin-top: $largeMargin;
 
                 a {
                     display: inline-block;
@@ -672,7 +673,7 @@ input {
             }
 
             #footer-btns {
-                margin-top: $largeMargin;
+                margin-top: $hugeMargin;
 
                 #quemsomos, #contato {
                     display: inline-block;
@@ -700,18 +701,18 @@ input {
 
             #footer-text {
                 display: block;
-                margin: $regularMargin 0 50px 0;
+                margin: $largeMargin 0;
                 font-size: $bigText;
 
                 @media #{$onlyPhone} {
                     margin-bottom: $regularMargin;
                     font-size: $smallText;
                 }
+            }
 
-                .partners a {
-                    display: inline-block;
-                    margin-right: $smallMargin;
-                }
+            .partners a {
+                display: inline-block;
+                margin-right: $smallMargin;
             }
 
         }

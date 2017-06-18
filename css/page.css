@@ -381,11 +381,13 @@ input {
         @media screen and (max-width: 760px) {
           #footer .wrapper .first-column img {
             display: none; } }
-      #footer .wrapper .first-column .nav a {
-        display: inline-block;
-        margin-right: 15px; }
-      #footer .wrapper .first-column #footer-btns {
+      #footer .wrapper .first-column .nav {
         margin-top: 20px; }
+        #footer .wrapper .first-column .nav a {
+          display: inline-block;
+          margin-right: 15px; }
+      #footer .wrapper .first-column #footer-btns {
+        margin-top: 30px; }
         #footer .wrapper .first-column #footer-btns #quemsomos, #footer .wrapper .first-column #footer-btns #contato {
           display: inline-block;
           padding: 10px;
@@ -404,15 +406,15 @@ input {
           float: none; } }
       #footer .wrapper .second-column #footer-text {
         display: block;
-        margin: 15px 0 50px 0;
+        margin: 20px 0;
         font-size: 18px; }
         @media screen and (max-width: 760px) {
           #footer .wrapper .second-column #footer-text {
             margin-bottom: 15px;
             font-size: 15px; } }
-        #footer .wrapper .second-column #footer-text .partners a {
-          display: inline-block;
-          margin-right: 10px; }
+      #footer .wrapper .second-column .partners a {
+        display: inline-block;
+        margin-right: 10px; }
 
 #staticpage-content {
   padding: 20px; }
