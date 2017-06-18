@@ -367,7 +367,8 @@ input {
     @media screen and (max-width: 760px) {
       #footer .wrapper {
         width: 100%;
-        padding: 0 10px; } }
+        padding: 0 10px;
+        text-align: center; } }
     #footer .wrapper .first-column {
       width: 320px;
       float: left; }
@@ -382,7 +383,7 @@ input {
           #footer .wrapper .first-column img {
             display: none; } }
       #footer .wrapper .first-column .nav {
-        margin-top: 20px; }
+        padding-top: 20px; }
         #footer .wrapper .first-column .nav a {
           display: inline-block;
           margin-right: 15px; }
@@ -406,7 +407,7 @@ input {
           float: none; } }
       #footer .wrapper .second-column #footer-text {
         display: block;
-        margin: 20px 0;
+        margin: 30px 0;
         font-size: 18px; }
         @media screen and (max-width: 760px) {
           #footer .wrapper .second-column #footer-text {
