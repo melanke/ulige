@@ -639,35 +639,28 @@ input {
             padding: 0 10px;
         }
 
-        #footer-info {
-            float: left;
-            width: 500px;
-            font-size: $bigText;
+        .first-column {
+            width: 320px;
+            float: left;            
 
             @media #{$onlyPhone} {
                 width: 100%;
+                float: none;
             }
 
-            #footer-text {
-                display: block;
-                margin: $regularMargin 0 50px 0;
+            img {
+                margin-top: $largeMargin;
+                height: 82px;
 
                 @media #{$onlyPhone} {
-                    margin-bottom: $regularMargin;
-                    font-size: $smallText;
+                    display: none;
                 }
             }
 
             .nav {
-                float: right;
-
-                @media #{$onlyPhone} {
-                    float: none;
-                }
 
                 a {
-                    display: block;
-                    float: left;
+                    display: inline-block;
                     margin-right: $regularMargin;
                 }
 
@@ -679,11 +672,7 @@ input {
             }
 
             #footer-btns {
-
-                @media #{$onlyPhone} {
-                    clear: both;
-                    padding-top: $regularMargin;
-                }
+                margin-top: $largeMargin;
 
                 #quemsomos, #contato {
                     display: inline-block;
@@ -698,17 +687,33 @@ input {
                     }
                 }
             }
-
         }
 
-        img {
-            margin-left: 100px;
-            margin-top: 40px;
-            height: 82px;
+        .second-column {
+            float: left;
+            width: 480px;
 
             @media #{$onlyPhone} {
-                display: none;
+                width: 100%;
+                float: none;
             }
+
+            #footer-text {
+                display: block;
+                margin: $regularMargin 0 50px 0;
+                font-size: $bigText;
+
+                @media #{$onlyPhone} {
+                    margin-bottom: $regularMargin;
+                    font-size: $smallText;
+                }
+
+                .partners a {
+                    display: inline-block;
+                    margin-right: $smallMargin;
+                }
+            }
+
         }
     }
 }
